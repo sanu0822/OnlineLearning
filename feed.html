@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .feedback h1{
+            margin-top: 30px;
+            text-align: center;
+            font-size: 35px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-decoration: underline orange;
+            text-underline-offset: 7px;
+        }
+        .feed-box{
+            background-color: lightblue;
+            padding: 20px;
+            margin-top: 40px;
+            margin-left: 10%;
+            border: 2px;
+            width: 80%;
+            border-radius: 20px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <section class="feed">
+
+        <div class="feedback">
+            <h1>OUR FEEDBACK</h1>
+        </div>
+        <div class="feed-box">
+            <p class="decription">
+                <?php echo $row['f_content']; ?>
+            </p>
+            <?php
+                $sql = "SELECT s.Name, s.Occupation, s.img, f.f_content FROM student AS s JOIN feedback AS f ON s.id = f.id"; 
+                $result = $con->query($sql);
+                if($result->num_rows > 0)
+            ?>
+        </div>
+    </section>
+
+    </body>
+</head>
+</html>
